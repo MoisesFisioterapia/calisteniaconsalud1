@@ -697,11 +697,16 @@
   /* ---------- VIDEOS ---------- */
   .videos{ background:var(--white); }
   .video-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:24px;
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:center;
+    gap:20px;
     max-width:1120px;
     margin:0 auto;
+    overflow-x:auto;
+    padding-bottom:10px;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;
   }
   .video-embed-card{
     background:var(--gray-bg);
@@ -714,9 +719,8 @@
     gap:14px;
     overflow:hidden;
     text-align:center;
-    max-width:260px;
-    margin:0 auto;
-    width:100%;
+    flex:0 0 200px;
+    scroll-snap-align:start;
   }
   .video-caption{
     font-size:0.92rem;
