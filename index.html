@@ -694,6 +694,77 @@
     }
   }
 
+  /* ---------- VIDEOS ---------- */
+  .videos{ background:var(--white); }
+  .video-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .video-embed-card{
+    background:var(--gray-bg);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    overflow:hidden;
+    text-align:center;
+  }
+  .video-caption{
+    font-size:0.92rem;
+    font-weight:600;
+    color:var(--text);
+    margin:0;
+  }
+  .video-thumb-link{
+    position:relative;
+    display:block;
+    width:100%;
+    border-radius:12px;
+    overflow:hidden;
+    background:#000;
+  }
+  .video-thumb-link img{
+    display:block;
+    width:100%;
+    aspect-ratio:9/16;
+    object-fit:cover;
+    transition:transform .5s var(--ease), opacity .5s var(--ease);
+  }
+  .video-thumb-link:hover img{ transform:scale(1.04); opacity:0.85; }
+  .video-play-icon{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:52px; height:52px;
+    border-radius:50%;
+    background:rgba(10,10,10,0.55);
+    backdrop-filter:blur(2px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    pointer-events:none;
+  }
+  .video-play-icon::after{
+    content:"";
+    border-style:solid;
+    border-width:9px 0 9px 15px;
+    border-color:transparent transparent transparent #fff;
+    margin-left:4px;
+  }
+
+  @media (max-width:900px){
+    .video-grid{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (max-width:600px){
+    .video-grid{ grid-template-columns:1fr; }
+  }
+
   /* ---------- PRECIO ---------- */
   .precio{ background:var(--black); color:var(--text-on-dark); text-align:center; }
   .precio .eyebrow{ color:var(--text-on-dark-soft); }
@@ -930,6 +1001,7 @@
     <li><a href="#como-funciona">Cómo funciona</a></li>
     <li><a href="#comparativa">Comparativa</a></li>
     <li><a href="semaforo.html" target="_blank" rel="noopener">Semáforo</a></li>
+    <li><a href="#videos">Vídeos</a></li>
     <li><a href="#precio">Precio</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
@@ -1222,6 +1294,45 @@
           <div class="testi-name">Txi</div>
           <div class="testi-role">Alumno — 46 años, dolor de hombro resuelto y más movilidad</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6b. VIDEOS -->
+<section class="videos" id="videos">
+  <div class="container">
+    <span class="eyebrow reveal">Contenido real</span>
+    <h2 class="reveal">Míralo en movimiento</h2>
+    <p class="section-lead reveal reveal-delay-1">Algunos vídeos de Instagram con ejercicios, explicaciones y momentos del método.</p>
+    <div class="video-grid">
+      <div class="video-embed-card reveal">
+        <p class="video-caption">Calistenia con Salud</p>
+        <a class="video-thumb-link" href="https://www.instagram.com/reel/DTF_wIICPzj/" target="_blank" rel="noopener">
+          <img src="assets/video-1-thumb.jpg" alt="Calistenia con Salud — vídeo en Instagram" loading="lazy">
+          <span class="video-play-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="video-embed-card reveal reveal-delay-1">
+        <p class="video-caption">Handstand — Calistenia con Salud</p>
+        <a class="video-thumb-link" href="https://www.instagram.com/reel/DUiaexKDZoD/" target="_blank" rel="noopener">
+          <img src="assets/video-2-thumb.jpg" alt="Handstand — vídeo en Instagram" loading="lazy">
+          <span class="video-play-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="video-embed-card reveal reveal-delay-2">
+        <p class="video-caption">L-sit a handstand — Calistenia con Salud</p>
+        <a class="video-thumb-link" href="https://www.instagram.com/reel/DMLB0DdisS3/" target="_blank" rel="noopener">
+          <img src="assets/video-3-thumb.jpg" alt="L-sit a handstand — vídeo en Instagram" loading="lazy">
+          <span class="video-play-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="video-embed-card reveal reveal-delay-3">
+        <p class="video-caption">Freestyle — Calistenia con Salud</p>
+        <a class="video-thumb-link" href="https://www.instagram.com/reel/DKemmxOiKSZ/" target="_blank" rel="noopener">
+          <img src="assets/video-4-thumb.jpg" alt="Freestyle — vídeo en Instagram" loading="lazy">
+          <span class="video-play-icon" aria-hidden="true"></span>
+        </a>
       </div>
     </div>
   </div>
