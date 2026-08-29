@@ -698,7 +698,7 @@
   .videos{ background:var(--white); }
   .video-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:24px;
     max-width:1120px;
     margin:0 auto;
@@ -714,6 +714,9 @@
     gap:14px;
     overflow:hidden;
     text-align:center;
+    max-width:260px;
+    margin:0 auto;
+    width:100%;
   }
   .video-caption{
     font-size:0.92rem;
@@ -756,13 +759,6 @@
     border-width:9px 0 9px 15px;
     border-color:transparent transparent transparent #fff;
     margin-left:4px;
-  }
-
-  @media (max-width:900px){
-    .video-grid{ grid-template-columns:repeat(2,1fr); }
-  }
-  @media (max-width:600px){
-    .video-grid{ grid-template-columns:1fr; }
   }
 
   /* ---------- PRECIO ---------- */
@@ -1331,6 +1327,13 @@
         <p class="video-caption">Freestyle — Calistenia con Salud</p>
         <a class="video-thumb-link" href="https://www.instagram.com/reel/DKemmxOiKSZ/" target="_blank" rel="noopener">
           <img src="assets/video-4-thumb.jpg" alt="Freestyle — vídeo en Instagram" loading="lazy">
+          <span class="video-play-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="video-embed-card reveal reveal-delay-3">
+        <p class="video-caption">Front Lever — Calistenia con Salud</p>
+        <a class="video-thumb-link" href="https://www.instagram.com/reel/DL7jyN5Citl/" target="_blank" rel="noopener">
+          <img src="assets/video-5-thumb.jpg" alt="Front Lever — vídeo en Instagram" loading="lazy">
           <span class="video-play-icon" aria-hidden="true"></span>
         </a>
       </div>
