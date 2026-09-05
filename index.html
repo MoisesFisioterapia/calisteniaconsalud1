@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Calistenia con Salud — Entrena hoy, aunque tengas dolor</title>
-<meta name="description" content="Programa de calistenia con 4 días de entrenamiento semanales según tu nivel (principiante, intermedio o avanzado) para seguir entrenando aunque tengas dolor, sin parar y sin perder lo que ya has conseguido.">
+<meta name="description" content="Programa de calistenia diseñado por un fisioterapeuta y entrenador certificado por la FESWC, con 4 días de entrenamiento semanales según tu nivel (principiante, intermedio o avanzado) para seguir entrenando aunque tengas dolor, sin parar y sin perder lo que ya has conseguido.">
 <style>
   :root{
     --black:#0a0a0a;
@@ -175,6 +175,62 @@
     .nav-links{ display:none; }
   }
 
+  /* ---------- COUNTDOWN BAR ---------- */
+  .countdown-bar{
+    position:fixed;
+    top:64px; left:0; right:0;
+    z-index:99;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px 18px;
+    background:linear-gradient(90deg, var(--primary), var(--black) 85%);
+    color:var(--text-on-dark);
+    padding:10px 20px;
+    font-size:0.82rem;
+    border-bottom:1px solid var(--border-dark);
+  }
+  .countdown-bar-label{
+    font-weight:600;
+    color:var(--text-on-dark);
+    white-space:nowrap;
+  }
+  .countdown-bar-timer{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-variant-numeric:tabular-nums;
+  }
+  .countdown-unit{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:38px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:8px;
+    padding:3px 6px;
+    line-height:1.1;
+  }
+  .countdown-unit strong{
+    font-size:0.98rem;
+    font-weight:700;
+    color:var(--accent);
+  }
+  .countdown-unit span{
+    font-size:0.58rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--text-on-dark-soft);
+  }
+  .countdown-sep{ color:var(--text-on-dark-soft); font-weight:700; }
+  @media (max-width:600px){
+    .countdown-bar{ padding:8px 14px; font-size:0.76rem; }
+    .countdown-unit{ min-width:32px; padding:2px 5px; }
+    .countdown-unit strong{ font-size:0.86rem; }
+  }
+
   /* ---------- HERO ---------- */
   .hero{
     min-height:100dvh;
@@ -187,7 +243,7 @@
     color:var(--text-on-dark);
     position:relative;
     overflow:hidden;
-    padding:120px 0 60px 0;
+    padding:168px 0 60px 0;
   }
   .hero-photo{
     position:absolute;
@@ -987,7 +1043,7 @@
     .testi-grid{ grid-template-columns:1fr; }
   }
   @media (max-width:600px){
-    .hero{ padding:100px 0 48px 0; }
+    .hero{ padding:150px 0 48px 0; }
     .solucion-box{ padding:28px 20px; }
     .price-box{ padding:36px 22px; }
     .cta-button{ padding:17px 28px; font-size:1rem; width:100%; justify-content:center; }
@@ -1019,15 +1075,32 @@
   <a href="#cta-final" class="nav-cta">Reservar plaza</a>
 </nav>
 
+<div class="countdown-bar" id="countdown-bar" role="timer" aria-live="off">
+  <span class="countdown-bar-label">El programa comienza el 30 de septiembre. Empieza en:</span>
+  <div class="countdown-bar-timer" id="countdown-timer">
+    <div class="countdown-unit"><strong id="cd-days">00</strong><span>días</span></div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-unit"><strong id="cd-hours">00</strong><span>horas</span></div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-unit"><strong id="cd-mins">00</strong><span>min</span></div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-unit"><strong id="cd-secs">00</strong><span>seg</span></div>
+  </div>
+</div>
+
 <!-- 1. TITULAR -->
 <header class="hero" id="inicio">
   <div class="hero-photo" aria-hidden="true"></div>
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-logo reveal in-view" role="img" aria-label="Calistenia con Salud"></div>
-    <h1 class="reveal in-view reveal-delay-1">Entrena con dolor resolviéndose en paralelo, y progresa si no lo tienes.</h1>
+    <h1 class="reveal in-view reveal-delay-1">Programa de entrenamiento de calistenia para gente que quiere avanzar de forma segura.</h1>
     <p class="subtitle reveal in-view reveal-delay-2">4 días de entrenamiento cada semana, según tu nivel (principiante, intermedio o avanzado), para quienes quieren seguir entrenando aunque tengan dolor: sin parar del todo y sin perder lo que ya has conseguido.</p>
     <div class="hero-badges reveal in-view reveal-delay-3">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+        Diseñado por un fisioterapeuta y entrenador certificado por la FESWC
+      </span>
       <span class="badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
         Basado en evidencia científica actual
@@ -1141,13 +1214,13 @@
     <div class="compare-table">
       <div class="compare-head">
         <div class="compare-head-cell"></div>
-        <div class="compare-head-cell compare-head-us">Calistenia con Salud</div>
+        <div class="compare-head-cell compare-head-us">Mi programa</div>
         <div class="compare-head-cell compare-head-them">Otros programas / centros</div>
       </div>
 
       <div class="compare-row">
         <div class="compare-label">Enfoque del dolor</div>
-        <div class="compare-cell compare-us" data-col-label="Calistenia con Salud">
+        <div class="compare-cell compare-us" data-col-label="Mi programa">
           <div class="compare-cell-body">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
             <p>Se ajusta la carga y se trabaja la causa real del dolor, no solo el síntoma.</p>
@@ -1163,10 +1236,10 @@
 
       <div class="compare-row">
         <div class="compare-label">Quién diseña tu plan</div>
-        <div class="compare-cell compare-us" data-col-label="Calistenia con Salud">
+        <div class="compare-cell compare-us" data-col-label="Mi programa">
           <div class="compare-cell-body">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-            <p>Un fisioterapeuta especializado en dolor, con enfoque biopsicosocial y evidencia científica actual.</p>
+            <p>Un fisioterapeuta y entrenador certificado por la FESWC (Federación Española de Street Workout y Calistenia), especializado en dolor y con enfoque biopsicosocial.</p>
           </div>
         </div>
         <div class="compare-cell compare-them" data-col-label="Otros programas / centros">
@@ -1179,7 +1252,7 @@
 
       <div class="compare-row">
         <div class="compare-label">Planificación</div>
-        <div class="compare-cell compare-us" data-col-label="Calistenia con Salud">
+        <div class="compare-cell compare-us" data-col-label="Mi programa">
           <div class="compare-cell-body">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
             <p>Periodización real por mesociclos, con una progresión semanal distinta cada vez.</p>
@@ -1195,7 +1268,7 @@
 
       <div class="compare-row">
         <div class="compare-label">Autoevaluación y criterio</div>
-        <div class="compare-cell compare-us" data-col-label="Calistenia con Salud">
+        <div class="compare-cell compare-us" data-col-label="Mi programa">
           <div class="compare-cell-body">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
             <p>Herramientas como el semáforo del dolor, para que sepas qué puedes entrenar hoy.</p>
@@ -1211,7 +1284,7 @@
 
       <div class="compare-row">
         <div class="compare-label">Calentamiento y movilidad</div>
-        <div class="compare-cell compare-us" data-col-label="Calistenia con Salud">
+        <div class="compare-cell compare-us" data-col-label="Mi programa">
           <div class="compare-cell-body">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
             <p>Parte fija de cada sesión, respaldada por la evidencia para reducir el riesgo de lesión.</p>
@@ -1227,7 +1300,7 @@
 
       <div class="compare-row">
         <div class="compare-label">Personalización</div>
-        <div class="compare-cell compare-us" data-col-label="Calistenia con Salud">
+        <div class="compare-cell compare-us" data-col-label="Mi programa">
           <div class="compare-cell-body">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
             <p>Tu nivel, tu objetivo y las señales de tu cuerpo ajustan el plan semana a semana.</p>
@@ -1426,6 +1499,16 @@
         </div>
       </div>
 
+      <div class="faq-item" data-open="false">
+        <button class="faq-question" aria-expanded="false">
+          ¿Quién ha diseñado este programa?
+          <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Lo he diseñado yo, Moisés: fisioterapeuta especializado en dolor con enfoque biopsicosocial y entrenador de Street Workout y Calistenia certificado por la FESWC (Federación Española de Street Workout y Calistenia). Cada mesociclo une criterio clínico real con progresiones de calistenia bien planteadas, no plantillas genéricas.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1476,6 +1559,42 @@
     // Año dinámico en el footer
     var yearEl = document.getElementById("year");
     if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
+    // ---------- Temporizador de cuenta atrás (inicio del programa: 30 de septiembre) ----------
+    (function(){
+      var countdownBar = document.getElementById("countdown-bar");
+      if (!countdownBar) return;
+      var targetDate = new Date("2026-09-30T00:00:00+02:00").getTime();
+      var elDays = document.getElementById("cd-days");
+      var elHours = document.getElementById("cd-hours");
+      var elMins = document.getElementById("cd-mins");
+      var elSecs = document.getElementById("cd-secs");
+      var elLabel = countdownBar.querySelector(".countdown-bar-label");
+
+      function pad(n){ return String(n).padStart(2, "0"); }
+
+      function tick(){
+        var now = Date.now();
+        var diff = targetDate - now;
+        if (diff <= 0){
+          elLabel.textContent = "¡El programa ya ha comenzado!";
+          countdownBar.querySelector(".countdown-bar-timer").style.display = "none";
+          clearInterval(intervalId);
+          return;
+        }
+        var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        var mins = Math.floor((diff / (1000 * 60)) % 60);
+        var secs = Math.floor((diff / 1000) % 60);
+        elDays.textContent = pad(days);
+        elHours.textContent = pad(hours);
+        elMins.textContent = pad(mins);
+        elSecs.textContent = pad(secs);
+      }
+
+      tick();
+      var intervalId = setInterval(tick, 1000);
+    })();
 
     // Scroll suave al hacer click en los enlaces del menú
     document.querySelectorAll('.nav-links a, .nav-cta, .nav-logo').forEach(function (link) {
